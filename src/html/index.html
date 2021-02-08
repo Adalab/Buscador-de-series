@@ -13,17 +13,17 @@
   <div class="wrapper">
     <div class="search">
       <h1 class="search__title">Buscador de series</h1>
-      <form action="" method="post" class="search__form" id="js-form">
-        <input type="text" class="search__form--input" id="js-input" value="">
+      <form action="" method="post" class="search__form js-form">
+        <input type="text" class="search__form--input js-input" value="">
         <button type="button" id="js-button" class="search__form--button">Buscar</button>
       </form>
-      <section class="search__favorites" id="favorites">
+      <section class="search__favorites favorites">
         <h2 class="search__favorites--title">Mis series favoritas</h2>
-        <button type="button" id="js-reset" class="reset">RESET</button>
-        <ul id="js-fav-list" class="search__favorites--list"></ul>
+        <button type="button js-reset" class="reset">RESET</button>
+        <ul class="js-fav-list" class="search__favorites--list"></ul>
       </section>
     </div>
-    <main id="js-results" class="results">
+    <main class="js-results" class="results">
       <ul class="results__list js-results-list"></ul>
     </main>
   </div>
