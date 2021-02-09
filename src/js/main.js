@@ -4,7 +4,7 @@ let movies = [];
 const inputElement = document.querySelector('.js-input');
 const moviesContainer = document.querySelector('.js-results-list');
 const placeholderImg = 'https://via.placeholder.com/210x295/ffffff/666666/?text=Imagen no encontrada';
-const filterInput = document.querySelector('.js-filter');
+const formElement = document.querySelector('.js-form');
 
 //función api
 function getDataFromApi() {
@@ -19,15 +19,21 @@ function getDataFromApi() {
       paintMovies();
     });
 }
+// evitar que envíe el input por defecto
+function handleForm(ev) {
+  ev.preventDefault();
+}
+formElement.addEventListener('submit', handleForm);
 
 // filtrar
 function handleFilter() {
   console.log('filtrando');
   getDataFromApi();
+  paintMovies();
 
 }
 
-filterInput.addEventListener('keyup', handleFilter);
+inputElement.addEventListener('keyup', handleFilter);
 
 
 // Pintar las películas

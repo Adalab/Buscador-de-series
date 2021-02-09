@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Buscador de series</title>
-
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Solway:400,500,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900&display=swap" rel="stylesheet">
 
 </head>
 
@@ -14,8 +16,8 @@
     <div class="search">
       <h1 class="search__title">Buscador de series</h1>
       <form action="" method="post" class="search__form js-form">
-        <input type="text" class="search__form--input    js-input js-filter" value="">
-        <button type="button" id="js-button" class="search__form--button">Buscar</button>
+        <input type="text" class="search__form--input    js-input" value="">
+        <button type="button" class="search__form--button js-filter">Buscar</button>
       </form>
       <section class="search__favorites favorites">
         <h2 class="search__favorites--title">Mis series favoritas</h2>
@@ -23,7 +25,7 @@
         <ul class="search__favorites--list js-fav-list"></ul>
       </section>
     </div>
-    <main class="js-results" class="results">
+    <main class="results js-results">
       <ul class="results__list js-results-list"></ul>
     </main>
   </div>
