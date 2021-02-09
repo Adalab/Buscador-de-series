@@ -2,12 +2,13 @@
 
 let movies = [];
 const inputElement = document.querySelector('.js-input');
-const inputValue = inputElement.value;
-const moviesContainer = document.querySelector('.js-fav-list');
-const placeholderImg =
-  'https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com';
+const moviesContainer = document.querySelector('.js-results-list');
+const placeholderImg = 'https://via.placeholder.com/210x295/ffffff/666666/?text=Imagen no encontrada';
+const filterInput = document.querySelector('.js-filter');
+
 //función api
 function getDataFromApi() {
+  const inputValue = inputElement.value;
   fetch(`http://api.tvmaze.com/search/shows?q=${inputValue}`)
     .then((response) => response.json())
     .then((data) => {
@@ -18,29 +19,34 @@ function getDataFromApi() {
       paintMovies();
     });
 }
+
+// filtrar
+function handleFilter() {
+  console.log('filtrando');
+  getDataFromApi();
+
+}
+
+filterInput.addEventListener('keyup', handleFilter);
+
+
 // Pintar las películas
 
 function paintMovies() {
   let htmlCode = '';
-  for (let index = 0; index < movies.length; index++) {
-    const name = movies[index].name;
-    const image = movies[index].image;
-    const id = movies[index].id;
-    htmlCode += `<li class="movie-target js-movieTarget" id="${id}">`;
-    htmlCode += `<div class="imageContainer"`;
-    if (image) {
-      htmlCode += `<img src"${image.medium}" class="movie-img js-movie-image" alt="img"/>`;
+  for (const movie of movies) {
+    console.log(movie.image);
+    htmlCode += `<li  id="${movie.id}">`;
+    htmlCode += `<div>`;
+    if (movie.image !== null) {
+      htmlCode += `<img src="${movie.image.medium}" alt="img"/>`;
     } else {
-      htmlCode += `<img src"${placeholderImg}" class="movie-img js-movie-image" alt="img"/>`;
-      htmlCode += `</div>`;
+      htmlCode += `<img src="${placeholderImg}" alt="img"/>`;
     }
-
-    htmlCode += `<h3 class="movie-title js-movieTitle">${name}</h3>`;
+    htmlCode += `</div>`;
+    htmlCode += `<h3>${movie.name}</h3>`;
     htmlCode += `</li>`;
   }
   moviesContainer.innerHTML = htmlCode;
 }
 
-paintMovies();
-//start api
-getDataFromApi();
