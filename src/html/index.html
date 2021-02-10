@@ -12,25 +12,8 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="search">
-      <h1 class="search__title">Buscador de series</h1>
-      <form action="" method="post" class="search__form js-form">
-        <input type="text" class="search__form--input    js-input" value="">
-        <button type="button" class="search__form--button js-filter">Buscar</button>
-      </form>
-      <section class="search__favorites favorites">
-        <h2 class="search__favorites--title">Mis series favoritas</h2>
-        <button type="button js-reset" class="reset">RESET</button>
-        <ul class="search__favorites--list js-fav-list"></ul>
-      </section>
-    </div>
-    <main class="results js-results">
-      <ul class="results__list js-results-list"></ul>
-    </main>
-  </div>
-  <script src="./assets/js/main.js"></script>
-  </div>
+  <include src="./partials/main.html"></include>
 </body>
+<script src="./assets/js/main.js"></script>
 
 </html>
